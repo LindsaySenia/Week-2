@@ -5,7 +5,10 @@
 */
 
 //CODE HERE
-
+function helloWorld(){
+  console.log('Hello, World!')
+}
+helloWorld()
 
 ////////////////// PROBLEM 2 ////////////////////
 /*
@@ -15,7 +18,11 @@
 */
 
 //CODE HERE
-
+let name = 'Cameron'
+function printName(name){
+  console.log(name)
+}
+printName(name)
 
 ////////////////// PROBLEM 3 ////////////////////
 /*
@@ -29,7 +36,13 @@
 */
 
 //CODE HERE
+let nameTwo = 'Jake'
+function greeting(name){
+  name = String(name)
+  console.log(`Hello, ${name}!`)
+}
 
+greeting(nameTwo);
 
 ////////////////// PROBLEM 4 ////////////////////
 /*
@@ -41,6 +54,14 @@
 
 //CODE HERE
 
+function add(num1, num2){
+  num1 = Number(num1)
+  num2 = Number(num2)
+  return num1 + num2
+}
+
+let sum = add(42, 66)
+console.log(sum)
 
 ////////////////// PROBLEM 5 ////////////////////
 /*
@@ -53,7 +74,17 @@
 
 //CODE HERE
 
-
+function nameCheck(name){
+  if (name === 'Steven'){
+    return `What is up ${name}?`
+  } else if (name === 'Bryan'){
+    return `Hey ${name}!`
+  } else {
+    return `Cool name, ${name}.`
+  }
+}
+let nameGreeting = nameCheck('Lindsay')
+console.log(nameGreeting)
 ////////////////// PROBLEM 6 ////////////////////
 /*
   Write a function called faveColorFinder that takes in one parameter called color (which will be a string).
@@ -66,6 +97,19 @@
 
 //CODE HERE
 
+function faveColorFinder(color){
+  if (color === 'red'){
+    return `${color} is a great color`
+  } else if (color === 'green'){
+    return `${color} is a solid favorite color`
+  } else if (color === black){
+    return 'So trendy'
+  } else {
+    return 'You need to evaluate your favorite color choice'
+  }
+}
+let colorRating = faveColorFinder('green')
+console.log(colorRating)
 
 ////////////////// PROBLEM 7 ////////////////////
 let namesArr = ['Cameron', 'Riley', 'Eric', 'Brenna', 'Karl']
@@ -77,7 +121,12 @@ let namesArr = ['Cameron', 'Riley', 'Eric', 'Brenna', 'Karl']
 
 //CODE HERE
 
-
+function printAllNames(arr){
+  for(i = 0; i < arr.length; i++){
+    console.log(arr[i])
+  }
+}
+printAllNames(namesArr)
 ////////////////// PROBLEM 8 ////////////////////
 /*
   Create a function called thatsOdd that takes in a single argument (a number).
@@ -88,7 +137,16 @@ let namesArr = ['Cameron', 'Riley', 'Eric', 'Brenna', 'Karl']
 
 //CODE HERE
 
+function thatsOdd(num){
+  if (num % 2 === 0){
+    return "That's not odd!"
+  } else {
+    return "That's odd indeed!"
+  }
+}
 
+let oddChecker = thatsOdd(6)
+console.log(oddChecker)
 ////////////////// PROBLEM 9 ////////////////////
 let bigOrSmallArray = [1,101, 102, 2, 103, 4, 5, 6, 107]
 /* 
@@ -101,6 +159,19 @@ let bigOrSmallArray = [1,101, 102, 2, 103, 4, 5, 6, 107]
 */
 
 //CODE HERE
+function bigOrSmall(arr){
+  let answers = []
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] > 100){
+      answers.push('big')
+    } else if (arr[i] <= 100){
+      answers.push('small')
+    }
+  }
+  return answers
+  let arrayEvaluator = answers
+}
+console.log(bigOrSmall(bigOrSmallArray))
 
 
 ////////////////// PROBLEM 10 ////////////////////
@@ -111,8 +182,18 @@ let loser = 'Glimmer'
   The function should loop over the array of contestant names. If the loser string appears in the array, splice it out. Return the new contestants array.
 */
 
-//CODE HERE
 
+//CODE HERE
+function theEliminator(contestants, loser){
+  for (let i = 0; i < contestants.length; i++){
+    if (contestants [i] === loser){
+      contestants.splice(i, 1)
+    }
+  }
+  return contestants
+}
+let updatedContestants = theEliminator(contestants, loser)
+console.log(updatedContestants)
 
 ////////////////// PROBLEM 11 ////////////////////
 let sampleString = "Hi, my name is Kylo."
@@ -122,7 +203,10 @@ let sampleString = "Hi, my name is Kylo."
 */
 
 //CODE HERE
-
+function upperCase(sampleString){
+  console.log(sampleString.toUpperCase())
+}
+upperCase(sampleString)
 
 ////////////////// PROBLEM 12 ////////////////////
 /*
@@ -135,6 +219,19 @@ let sampleString = "Hi, my name is Kylo."
   return 'must provide a valid email address'
 */
 
+function emailCheck(email){
+  let stringEmail = String(email)
+  let slimEmail = stringEmail.trim()
+  if (slimEmail.includes('@')){
+    return 'Email verified'
+  } else {
+    return 'Must provide a valid email address'
+  }
+}
+console.log(emailCheck('abc@gmail.com'))
+
+
+
 ////////////////// PROBLEM 13 ////////////////////
 /*
   Write a function, naming it whatever you believe to be appropriate, that buys as many chocolate frogs as possible with a certain amount of gold. Each chocolate frog costs 3 gold. Your function should take in a single parameter, which is the amount of gold you are willing to spend. Your function should return a total amount of chocolate frogs you were able to purchase.
@@ -143,24 +240,43 @@ let sampleString = "Hi, my name is Kylo."
 
 //CODE HERE
 
-
+function exchange(gold){
+  let frogs = gold / 3
+  return Math.floor(frogs)
+}
+let totalFrogs = exchange(4)
+console.log(totalFrogs)
 ////////////////// PROBLEM 14 ////////////////////
 /*
   You might have noticed a slight bug in problem 12. If you were to pass in 4 gold, the function would return to you 1.3333... However, you can't really go to a store and by 1.333 products. You would just be able to purchase 1 product. Re-write the function you used in problem 12 (give it the same name, just add a 2 to the end of it) that fixes this bug. Invoke the function and store the returned value to a variable called `totalFrogs2`.
 */
 
 //CODE HERE
-
+//we accounted for this in the previous problem
+function exchangeTwo(gold){
+  let frogs = gold / 3
+  return Math.floor(frogs)
+}
+let totalFrogsTwo = exchange(9)
+console.log(totalFrogsTwo)
 
 ////////////////// PROBLEM 15 ////////////////////
-let sampleArray = [0,1,2,3,4,7,5,6,8,9]
+let sampleArray = [0,1,5,3,4,7,5,6,8,9]
 /*
   Write a function that takes in an array of numbers as an argument. In the body of the function, write logic to determine if the array is in ascending order. The function should return true, if it is sorted in ascending order, false if it is not. Create a variable, `arrayIsAscending` and set it equal to your function invoked. Use the sample array to test this function.
 */
 
 //CODE HERE
 
-
+function order(arr){
+  let check = true
+  for (let i = 0; i < arr.length - 1; i++){
+        if (arr[i] > arr[i + 1]){
+          check = false
+  } }
+return check
+}
+console.log(order(sampleArray))
 ////////////////// PROBLEM 16 ////////////////////
 
 let duck = "cute";
@@ -183,13 +299,13 @@ function pond() {
 */
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = []
+let globalScope = ['duck']
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = []
+let bathroomScope = ['duck', 'rubberDuck']
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = []
+let bathtubScope = ['duck', 'rubberDuck', 'sailorDuck']
 
-//This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = []
+// //This array should contain the variable names (as strings) accessible in the pond function.
+let pondScope = ['duck', 'realDuck']
